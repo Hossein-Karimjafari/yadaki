@@ -2,6 +2,16 @@
 
 پلتفرم فروشگاهی لوازم یدکی خودرو با Next.js 15، PostgreSQL و پشتیبانی B2B (قیمت همکار/تعمیرگاه).
 
+## 🌐 محیط تولید
+
+- **آدرس سایت:** https://yadaki-tau.vercel.app
+- **ریپو:** https://github.com/Hossein-Karimjafari/yadaki
+- **دیتابیس:** Vercel Marketplace (Neon Postgres) — پلن Free
+- **پرداخت:** درگاه sandbox (فعال) — زرین‌پال آماده اتصال با `PAYMENT_GATEWAY=zarinpal` + `ZARINPAL_MERCHANT_ID`
+- **پیامک:** `SMS_PROVIDER=console` (چاپ در لاگ) — کاوه‌نگار/ملی‌پیامک آماده اتصال
+- **ادمین:** ورود با `09120000000` — کد OTP در لاگ Vercel (Runtime Logs) نمایش داده می‌شود
+- هر push به `master` به‌صورت خودکار در Vercel دیپلوی می‌شود (Git integration فعال است).
+
 ## راه‌اندازی سریع (لوکال)
 
 ```bash
