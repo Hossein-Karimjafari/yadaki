@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Clock, Mail, MapPin, Phone } from "lucide-react";
 
 export function Footer() {
   return (
@@ -39,10 +40,22 @@ export function Footer() {
           <div>
             <h4 className="mb-3 font-black">ارتباط با ما</h4>
             <ul className="space-y-2 text-sm text-slate-500">
-              <li>📞 پشتیبانی: ۰۲۱-۹۱۰۰۰۰۰۰</li>
-              <li>🕐 شنبه تا پنجشنبه، ۹ تا ۱۸</li>
-              <li>✉️ support@yadaki.example</li>
-              <li>📍 تهران، ایران</li>
+              <li className="flex items-center gap-2">
+                <Phone className="size-4 shrink-0 text-orange-500" />
+                پشتیبانی: ۰۲۱-۹۱۰۰۰۰۰۰
+              </li>
+              <li className="flex items-center gap-2">
+                <Clock className="size-4 shrink-0 text-orange-500" />
+                شنبه تا پنجشنبه، ۹ تا ۱۸
+              </li>
+              <li className="flex items-center gap-2">
+                <Mail className="size-4 shrink-0 text-orange-500" />
+                support@yadaki.example
+              </li>
+              <li className="flex items-center gap-2">
+                <MapPin className="size-4 shrink-0 text-orange-500" />
+                تهران، ایران
+              </li>
             </ul>
             <div className="mt-4 flex gap-2">
               <span className="flex h-16 w-16 items-center justify-center rounded-lg border-2 border-dashed border-slate-300 text-[10px] text-slate-400">

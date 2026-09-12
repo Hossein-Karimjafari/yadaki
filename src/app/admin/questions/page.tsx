@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { answerQuestionAction, deleteQuestionAction } from "../actions";
+import { CircleCheck } from "lucide-react";
 import { SubmitButton } from "@/components/submit-button";
 import { formatJalali } from "@/lib/format";
 
@@ -25,7 +26,10 @@ export default async function AdminQuestionsPage() {
     <div className="space-y-6">
       <h2 className="text-lg font-black">سوالات بدون پاسخ ({unanswered.length})</h2>
       {unanswered.length === 0 && (
-        <div className="card p-8 text-center text-sm text-slate-400">همه سوالات پاسخ داده شده‌اند ✅</div>
+        <div className="flex items-center justify-center gap-1.5 card p-8 text-center text-sm text-slate-400">
+          همه سوالات پاسخ داده شده‌اند
+          <CircleCheck className="size-4 text-emerald-500" />
+        </div>
       )}
       {unanswered.map((q) => (
         <div key={q.id} className="card p-4">
@@ -50,11 +54,11 @@ export default async function AdminQuestionsPage() {
 
       <h2 className="text-lg font-black">پاسخ‌های اخیر</h2>
       <div className="card divide-y divide-slate-50">
-        {answered.map((q) => (
-          <div key={q.id} className="p-3 text-xs text-slate-500">
-            <b>{q.product.name}</b> — {q.body} → <span className="text-emerald-600">{q.answer}</span>
-          </div>
-        ))}
+          {answered.map((q) => (
+            <div key={q.id} className="p-3 text-xs text-slate-500">
+              <b>{q.product.name}</b> — {q.body} ← <span className="text-emerald-600">{q.answer}</span>
+            </div>
+          ))}
         {answered.length === 0 && <p className="p-6 text-center">چیزی نیست.</p>}
       </div>
     </div>

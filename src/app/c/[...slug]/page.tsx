@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Package } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { listProducts, getFilterFacets } from "@/lib/products";
+import { CategoryIcon } from "@/components/category-icon";
 import { ProductCard } from "@/components/product-card";
 import { Filters, SortBar } from "@/components/filters";
 import { Pagination } from "@/components/pagination";
@@ -106,9 +108,10 @@ export default async function CategoryPage({
             <Link
               key={c.id}
               href={`/c/${c.slug}`}
-              className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm hover:border-orange-300 hover:text-orange-700"
+              className="flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm hover:border-orange-300 hover:text-orange-700"
             >
-              {c.icon ?? "🔧"} {c.name}
+              <CategoryIcon name={c.icon} className="size-4 text-orange-600" />
+              {c.name}
             </Link>
           ))}
         </div>
@@ -120,7 +123,7 @@ export default async function CategoryPage({
           <SortBar total={result.total} params={sp} basePath={basePath} />
           {result.items.length === 0 ? (
             <div className="card flex flex-col items-center gap-3 p-16 text-center">
-              <span className="text-5xl">📦</span>
+              <Package className="size-12 text-slate-300" />
               <h2 className="text-lg font-black">فعلاً کالایی در این دسته نیست</h2>
               <a href="/quote" className="btn-outline mt-2">درخواست استعلام قیمت</a>
             </div>

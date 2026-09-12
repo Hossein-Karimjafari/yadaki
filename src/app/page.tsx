@@ -1,6 +1,8 @@
 import Link from "next/link";
+import { ArrowLeft, BadgeCheck, Truck, Undo2, Wrench } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { ProductCard } from "@/components/product-card";
+import { CategoryIcon } from "@/components/category-icon";
 import { toFaDigits } from "@/lib/format";
 
 export default async function HomePage() {
@@ -54,10 +56,18 @@ export default async function HomePage() {
             <button className="btn-primary shrink-0">جستجو</button>
           </form>
           <div className="mt-6 flex flex-wrap gap-4 text-xs text-slate-300 md:text-sm">
-            <span>✅ تضمین اصالت کالا</span>
-            <span>🚚 ارسال سریع سراسر کشور</span>
-            <span>🔧 قیمت همکار تعمیرگاه‌ها</span>
-            <span>↩️ ۷ روز مهلت مرجوعی</span>
+            <span className="flex items-center gap-1.5">
+              <BadgeCheck className="size-4 text-orange-400" /> تضمین اصالت کالا
+            </span>
+            <span className="flex items-center gap-1.5">
+              <Truck className="size-4 text-orange-400" /> ارسال سریع سراسر کشور
+            </span>
+            <span className="flex items-center gap-1.5">
+              <Wrench className="size-4 text-orange-400" /> قیمت همکار تعمیرگاه‌ها
+            </span>
+            <span className="flex items-center gap-1.5">
+              <Undo2 className="size-4 text-orange-400" /> ۷ روز مهلت مرجوعی
+            </span>
           </div>
         </div>
       </section>
@@ -71,7 +81,9 @@ export default async function HomePage() {
               href={`/c/${c.slug}`}
               className="card flex flex-col items-center gap-2 p-5 text-center transition hover:border-orange-300 hover:shadow-md"
             >
-              <span className="text-3xl">{c.icon ?? "🔧"}</span>
+              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-50 text-orange-600">
+                <CategoryIcon name={c.icon} className="size-6" />
+              </span>
               <span className="text-sm font-bold">{c.name}</span>
               <span className="text-xs text-slate-400">
                 {toFaDigits(c._count.products)} کالا
@@ -121,8 +133,8 @@ function SectionTitle({ title, href }: { title: string; href: string }) {
   return (
     <div className="mb-4 flex items-center justify-between">
       <h2 className="text-lg font-black md:text-xl">{title}</h2>
-      <Link href={href} className="text-sm text-orange-600 hover:underline">
-        مشاهده همه ←
+      <Link href={href} className="flex items-center gap-1 text-sm text-orange-600 hover:underline">
+        مشاهده همه <ArrowLeft className="size-4" />
       </Link>
     </div>
   );

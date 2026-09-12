@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import { getCurrentUser } from "@/lib/auth";
 import { getVehicleTree } from "@/lib/vehicles";
+import { Car } from "lucide-react";
 import { GarageForm } from "./garage-form";
 import { deleteVehicleAction, setDefaultVehicleAction } from "../actions";
 import { toFaDigits } from "@/lib/format";
@@ -30,8 +31,9 @@ export default async function GaragePage() {
         {vehicles.map((v) => (
           <div key={v.id} className="card p-4 text-sm">
             <div className="mb-1 flex items-center justify-between">
-              <span className="font-black">
-                🚗 {v.make.name} {v.model.name}
+              <span className="flex items-center gap-1.5 font-black">
+                <Car className="size-4 text-orange-600" />
+                {v.make.name} {v.model.name}
               </span>
               {v.isDefault && <span className="badge bg-emerald-100 text-emerald-700">پیش‌فرض</span>}
             </div>

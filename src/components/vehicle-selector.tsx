@@ -2,6 +2,7 @@
 
 import { useMemo, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
+import { Car, X } from "lucide-react";
 import { setVehicleAction } from "@/app/actions/vehicle";
 import type { VehicleTree } from "@/lib/vehicles";
 
@@ -42,7 +43,7 @@ export function VehicleSelector({ tree, selected }: Props) {
     return (
       <div className="flex items-center gap-2">
         <div className="flex items-center gap-2 rounded-xl border border-orange-200 bg-orange-50 px-3 py-1.5 text-sm">
-          <span>🚗</span>
+          <Car className="size-4 text-orange-600" />
           <span className="font-bold text-orange-800">
             {selected.make} {selected.model} | {selected.trim}
           </span>
@@ -53,7 +54,7 @@ export function VehicleSelector({ tree, selected }: Props) {
           className="text-xs text-slate-400 hover:text-red-600"
           title="حذف خودروی انتخابی"
         >
-          ✕
+          <X className="size-4" />
         </button>
       </div>
     );
@@ -65,7 +66,10 @@ export function VehicleSelector({ tree, selected }: Props) {
         onClick={() => setOpen(true)}
         className="btn-outline !py-1.5 text-xs sm:text-sm"
       >
-        🚗 انتخاب خودرو
+        <span className="flex items-center gap-1.5">
+          <Car className="size-4" />
+          انتخاب خودرو
+        </span>
       </button>
 
       {open && (
@@ -78,7 +82,7 @@ export function VehicleSelector({ tree, selected }: Props) {
             <div className="mb-4 flex items-center justify-between">
               <h3 className="text-lg font-black">انتخاب خودروی خود</h3>
               <button onClick={() => setOpen(false)} className="text-slate-400 hover:text-slate-600">
-                ✕
+                <X className="size-5" />
               </button>
             </div>
             <p className="mb-4 text-xs text-slate-500">

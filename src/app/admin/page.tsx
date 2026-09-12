@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
+import { CircleCheck } from "lucide-react";
 import { formatToman, formatJalali, ORDER_STATUS_FA, toFaDigits } from "@/lib/format";
 
 export const metadata = { title: "داشبورد مدیریت" };
@@ -95,7 +96,10 @@ export default async function AdminDashboard() {
               </div>
             ))}
             {lowStock.length === 0 && (
-              <p className="text-sm text-slate-400">موجودی همه محصولات مناسب است ✅</p>
+              <p className="flex items-center gap-1.5 text-sm text-slate-400">
+                موجودی همه محصولات مناسب است
+                <CircleCheck className="size-4 text-emerald-500" />
+              </p>
             )}
           </div>
         </div>

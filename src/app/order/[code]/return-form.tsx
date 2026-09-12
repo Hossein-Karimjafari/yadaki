@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
+import { CircleCheck } from "lucide-react";
 import { createReturnAction, type ReturnState } from "./actions";
 import { SubmitButton } from "@/components/submit-button";
 
@@ -11,8 +12,9 @@ export function ReturnForm({ orderId }: { orderId: string }) {
 
   if (state.success) {
     return (
-      <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm font-bold text-emerald-700">
-        ✓ {state.success}
+      <div className="flex items-center gap-2 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm font-bold text-emerald-700">
+        <CircleCheck className="size-5 shrink-0" />
+        {state.success}
       </div>
     );
   }

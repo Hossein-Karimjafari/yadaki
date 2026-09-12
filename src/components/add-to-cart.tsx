@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
+import { ArrowLeft, ShoppingCart } from "lucide-react";
 import { addToCartAction, type ActionState } from "@/app/actions/cart";
 import { SubmitButton } from "./submit-button";
 
@@ -26,14 +27,14 @@ export function AddToCartButton({
         pendingText="..."
         disabled={disabled}
       >
-        {compact ? "🛒" : "افزودن به سبد خرید"}
+        {compact ? <ShoppingCart className="size-4" /> : "افزودن به سبد خرید"}
       </SubmitButton>
       {state.error && (
         <span className="text-[11px] text-red-500">{state.error}</span>
       )}
       {state.success && (
-        <a href="/cart" className="text-[11px] font-bold text-emerald-600 hover:underline">
-          {state.success} → مشاهده سبد
+        <a href="/cart" className="flex items-center gap-1 text-[11px] font-bold text-emerald-600 hover:underline">
+          {state.success} <ArrowLeft className="size-3" /> مشاهده سبد
         </a>
       )}
       {disabled && !state.error && (

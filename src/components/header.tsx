@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CircleUser, Search, ShoppingCart } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { getCurrentUser } from "@/lib/auth";
 import { cartItemsCount } from "@/lib/cart";
@@ -52,7 +53,7 @@ export async function Header() {
                 className="absolute left-2 top-1/2 -translate-y-1/2 text-slate-400 hover:text-orange-600"
                 aria-label="جستجو"
               >
-                🔍
+                <Search className="size-5" />
               </button>
             </form>
           </div>
@@ -65,7 +66,7 @@ export async function Header() {
               className="relative flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 hover:border-orange-400"
               aria-label="سبد خرید"
             >
-              🛒
+              <ShoppingCart className="size-5" />
               {cartCount > 0 && (
                 <span className="absolute -top-1.5 -right-1.5 flex h-5 min-w-5 items-center justify-center rounded-full bg-orange-600 px-1 text-[11px] font-bold text-white">
                   {toFaDigits(cartCount)}
@@ -75,7 +76,7 @@ export async function Header() {
 
             {user ? (
               <Link href="/account" className="btn-outline !py-2">
-                <span>👤</span>
+                <CircleUser className="size-5" />
                 <span className="hidden sm:inline">
                   {user.name || ROLE_FA[user.role]}
                 </span>

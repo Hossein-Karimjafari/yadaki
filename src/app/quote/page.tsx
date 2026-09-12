@@ -1,3 +1,4 @@
+import { Search } from "lucide-react";
 import { getCurrentUser } from "@/lib/auth";
 import { QuoteForm } from "./quote-form";
 
@@ -12,7 +13,9 @@ export default async function QuotePage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-8">
       <div className="mb-8 text-center">
-        <span className="text-5xl">🔎</span>
+        <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-3xl bg-orange-100 text-orange-600">
+          <Search className="size-8" />
+        </span>
         <h1 className="mt-3 text-2xl font-black">استعلام قیمت قطعه</h1>
         <p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-slate-500">
           قطعه‌ای که در سایت پیدا نکردید را برای ما بنویسید؛ شبکه تأمین‌کنندگان یدکی

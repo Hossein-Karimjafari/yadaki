@@ -75,7 +75,7 @@ export function ProductForm({
               <option value="">انتخاب...</option>
               {categories.map((c) => (
                 <option key={c.id} value={c.id}>
-                  {c.parentName ? `${c.parentName} → ${c.name}` : c.name}
+                  {c.parentName ? `${c.parentName} ← ${c.name}` : c.name}
                 </option>
               ))}
             </select>

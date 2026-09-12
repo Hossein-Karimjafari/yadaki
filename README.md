@@ -2,7 +2,7 @@
 
 پلتفرم فروشگاهی لوازم یدکی خودرو با Next.js 15، PostgreSQL و پشتیبانی B2B (قیمت همکار/تعمیرگاه).
 
-## 🌐 محیط تولید
+## محیط تولید
 
 - **آدرس سایت:** https://yadaki-tau.vercel.app
 - **ریپو:** https://github.com/Hossein-Karimjafari/yadaki

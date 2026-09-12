@@ -2,6 +2,7 @@ import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { Check, CircleCheck, CircleX } from "lucide-react";
 import { getCurrentUser } from "@/lib/auth";
 import { ReturnForm } from "./return-form";
 import {
@@ -65,7 +66,9 @@ export default async function OrderPage({
     <div className="mx-auto max-w-3xl px-4 py-8">
       {sp.payment === "ok" && (
         <div className="mb-6 rounded-2xl border border-emerald-200 bg-emerald-50 p-5 text-center">
-          <span className="text-4xl">✅</span>
+          <span className="mx-auto mb-2 flex h-14 w-14 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
+            <CircleCheck className="size-8" />
+          </span>
           <h1 className="mt-2 text-xl font-black text-emerald-800">پرداخت با موفقیت انجام شد</h1>
           <p className="mt-1 text-sm text-emerald-700">
             سفارش شما ثبت شد و جزئیات آن پیامک شد. کد رهگیری: {payment?.refId}
@@ -74,7 +77,9 @@ export default async function OrderPage({
       )}
       {sp.payment === "failed" && (
         <div className="mb-6 rounded-2xl border border-red-200 bg-red-50 p-5 text-center">
-          <span className="text-4xl">❌</span>
+          <span className="mx-auto mb-2 flex h-14 w-14 items-center justify-center rounded-full bg-red-100 text-red-600">
+            <CircleX className="size-8" />
+          </span>
           <h1 className="mt-2 text-xl font-black text-red-800">پرداخت ناموفق بود</h1>
           <p className="mt-1 text-sm text-red-700">
             {sp.msg ?? "مبلغی از حساب شما کسر نشده است."} می‌توانید مجدداً تلاش کنید.
@@ -105,7 +110,7 @@ export default async function OrderPage({
                       i <= currentIndex ? "bg-orange-600 text-white" : "bg-slate-200 text-slate-400"
                     }`}
                   >
-                    {i <= currentIndex ? "✓" : toFaDigits(i + 1)}
+                    {i <= currentIndex ? <Check className="size-4" /> : toFaDigits(i + 1)}
                   </span>
                   <span className="mt-1 hidden text-[10px] text-slate-500 sm:block">{t.label}</span>
                 </div>

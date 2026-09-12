@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { createCategoryAction, createBrandAction } from "../actions";
+import { CategoryIcon } from "@/components/category-icon";
 import { toFaDigits } from "@/lib/format";
 
 export const metadata = { title: "دسته‌بندی‌ها و برندها" };
@@ -37,8 +38,8 @@ export default async function AdminCatalogPage() {
             </select>
           </div>
           <div>
-            <label className="label">آیکون (اموجی)</label>
-            <input name="icon" className="input" placeholder="🔧" />
+            <label className="label">آیکون (نام آیکون Lucide)</label>
+            <input name="icon" className="input" dir="ltr" placeholder="wrench" />
           </div>
           <div className="sm:col-span-2">
             <button className="btn-primary w-full">افزودن دسته</button>
@@ -48,8 +49,9 @@ export default async function AdminCatalogPage() {
         <div className="card max-h-96 overflow-y-auto p-4 text-sm">
           {parents.map((p) => (
             <div key={p.id} className="mb-3">
-              <div className="font-bold">
-                {p.icon} {p.name}{" "}
+              <div className="flex items-center gap-1.5 font-bold">
+                <CategoryIcon name={p.icon} className="size-4 text-orange-600" />
+                {p.name}{" "}
                 <span className="text-xs text-slate-400">
                   ({toFaDigits(p._count.products)} کالا) — {p.slug}
                 </span>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { CircleCheck, ShieldCheck, TriangleAlert, Truck, Undo2 } from "lucide-react";
 import { getProductBySlug, getRelatedProducts } from "@/lib/products";
 import { getSelectedTrim } from "@/lib/vehicles";
 import { getCurrentUser } from "@/lib/auth";
@@ -123,15 +124,21 @@ export default async function ProductPage({
       </nav>
 
       {selectedTrim && isCompatible === false && (
-        <div className="mb-4 rounded-xl border border-red-200 bg-red-50 p-4 text-sm font-bold text-red-700">
-          ⚠️ هشدار سازگاری: این قطعه با خودروی انتخابی شما ({selectedTrim.model.make.name}{" "}
-          {selectedTrim.model.name} {selectedTrim.name}) سازگار نیست!
+        <div className="mb-4 flex items-center gap-2 rounded-xl border border-red-200 bg-red-50 p-4 text-sm font-bold text-red-700">
+          <TriangleAlert className="size-5 shrink-0" />
+          <span>
+            هشدار سازگاری: این قطعه با خودروی انتخابی شما ({selectedTrim.model.make.name}{" "}
+            {selectedTrim.model.name} {selectedTrim.name}) سازگار نیست!
+          </span>
         </div>
       )}
       {selectedTrim && isCompatible && (
-        <div className="mb-4 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm font-bold text-emerald-700">
-          ✅ این قطعه با خودروی انتخابی شما ({selectedTrim.model.make.name}{" "}
-          {selectedTrim.model.name} {selectedTrim.name}) سازگار است.
+        <div className="mb-4 flex items-center gap-2 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm font-bold text-emerald-700">
+          <CircleCheck className="size-5 shrink-0" />
+          <span>
+            این قطعه با خودروی انتخابی شما ({selectedTrim.model.make.name}{" "}
+            {selectedTrim.model.name} {selectedTrim.name}) سازگار است.
+          </span>
         </div>
       )}
 
@@ -346,12 +353,19 @@ export default async function ProductPage({
                 }
               />
             </div>
-            <div className="mt-4 rounded-xl bg-slate-50 p-3 text-[11px] leading-5 text-slate-500">
-              🛡️ ضمانت اصالت و سلامت فیزیکی کالا
-              <br />
-              ↩️ ۷ روز مهلت مرجوعی بدون قید و شرط
-              <br />
-              🚚 ارسال از انبار مرکزی در کمتر از ۲۴ ساعت
+            <div className="mt-4 space-y-2 rounded-xl bg-slate-50 p-3 text-[11px] leading-5 text-slate-500">
+              <span className="flex items-center gap-2">
+                <ShieldCheck className="size-4 shrink-0 text-orange-500" />
+                ضمانت اصالت و سلامت فیزیکی کالا
+              </span>
+              <span className="flex items-center gap-2">
+                <Undo2 className="size-4 shrink-0 text-orange-500" />
+                ۷ روز مهلت مرجوعی بدون قید و شرط
+              </span>
+              <span className="flex items-center gap-2">
+                <Truck className="size-4 shrink-0 text-orange-500" />
+                ارسال از انبار مرکزی در کمتر از ۲۴ ساعت
+              </span>
             </div>
           </div>
         </div>

@@ -1,8 +1,10 @@
 "use client";
 
 import { useActionState, useState } from "react";
+import { Star } from "lucide-react";
 import { submitReviewAction, submitQuestionAction, type ReviewState } from "./actions";
 import { SubmitButton } from "@/components/submit-button";
+import { Stars } from "@/components/category-icon";
 import { toFaDigits } from "@/lib/format";
 
 const initial: ReviewState = {};
@@ -65,7 +67,7 @@ export function ReviewForms({
               <div className="mb-1 flex items-center justify-between">
                 <span className="text-sm font-bold">{r.userName}</span>
                 <span className="flex items-center gap-2 text-xs text-slate-400">
-                  <span className="text-amber-500">{"★".repeat(r.rating)}</span>
+                  <Stars value={r.rating} className="size-3.5" />
                   {r.date}
                 </span>
               </div>
@@ -84,16 +86,16 @@ export function ReviewForms({
               <form action={reviewAction} className="space-y-3">
                 <input type="hidden" name="productId" value={productId} />
                 <input type="hidden" name="rating" value={rating} />
-                <div className="flex items-center gap-1">
+                <div className="flex items-center gap-1" dir="ltr">
                   {[5, 4, 3, 2, 1].map((n) => (
                     <button
                       key={n}
                       type="button"
                       onClick={() => setRating(n)}
-                      className={`text-xl ${n <= rating ? "text-amber-400" : "text-slate-300"}`}
+                      className={n <= rating ? "text-amber-400" : "text-slate-300"}
                       aria-label={`${n} ستاره`}
                     >
-                      ★
+                      <Star className={`size-6 ${n <= rating ? "fill-current" : ""}`} />
                     </button>
                   ))}
                 </div>

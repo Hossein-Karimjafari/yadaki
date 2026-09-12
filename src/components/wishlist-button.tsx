@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
+import { Heart } from "lucide-react";
 import { toggleWishlistAction, type WishlistState } from "@/app/actions/wishlist";
 
 const initial: WishlistState = {};
@@ -23,7 +24,10 @@ export function WishlistButton({
         className={`btn-outline w-full ${added ? "!border-red-200 !bg-red-50 !text-red-600" : ""}`}
         title={added ? "حذف از علاقه‌مندی‌ها" : "افزودن به علاقه‌مندی‌ها"}
       >
-        {added ? "♥ در علاقه‌مندی‌ها" : "♡ علاقه‌مندی"}
+        <span className="flex items-center justify-center gap-1.5">
+          <Heart className={`size-4 ${added ? "fill-current" : ""}`} />
+          {added ? "در علاقه‌مندی‌ها" : "علاقه‌مندی"}
+        </span>
       </button>
       {state.error && (
         <a href="/login" className="mt-1 block text-center text-[11px] text-orange-600 hover:underline">

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { listProducts, getFilterFacets } from "@/lib/products";
+import { Search } from "lucide-react";
 import { ProductCard } from "@/components/product-card";
 import { Filters, SortBar } from "@/components/filters";
 import { Pagination } from "@/components/pagination";
@@ -80,7 +81,7 @@ export default async function SearchPage({
           <SortBar total={result.total} params={sp} basePath="/search" />
           {result.items.length === 0 ? (
             <div className="card flex flex-col items-center gap-3 p-16 text-center">
-              <span className="text-5xl">🔎</span>
+              <Search className="size-12 text-slate-300" />
               <h2 className="text-lg font-black">نتیجه‌ای یافت نشد</h2>
               <p className="text-sm text-slate-500">
                 عبارت دیگری را امتحان کنید؛ می‌توانید با کد فنی یا شماره قطعه (OEM) جستجو کنید.

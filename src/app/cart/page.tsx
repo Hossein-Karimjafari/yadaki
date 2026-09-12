@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Package, ReceiptText, ShieldCheck, ShoppingCart } from "lucide-react";
 import { getCartWithItems, computeCartTotals } from "@/lib/cart";
 import { getCurrentUser } from "@/lib/auth";
 import { resolvePrice } from "@/lib/price";
@@ -15,7 +16,7 @@ export default async function CartPage() {
     return (
       <div className="mx-auto max-w-7xl px-4 py-16">
         <div className="card mx-auto flex max-w-md flex-col items-center gap-4 p-12 text-center">
-          <span className="text-6xl">🛒</span>
+          <ShoppingCart className="size-16 text-slate-300" />
           <h1 className="text-xl font-black">سبد خرید شما خالی است</h1>
           <p className="text-sm text-slate-500">
             از میان هزاران قطعه یدکی، قطعه سازگار با خودروی خود را پیدا کنید.
@@ -125,12 +126,19 @@ export default async function CartPage() {
               ادامه فرآیند خرید
             </Link>
           </div>
-          <div className="card p-4 text-xs leading-6 text-slate-500">
-            🛡️ پرداخت امن از طریق درگاه بانکی
-            <br />
-            📦 ارسال به سراسر ایران با پست پیشتاز و تیپاکس
-            <br />
-            🧾 امکان درخواست فاکتور رسمی
+          <div className="card space-y-2 p-4 text-xs leading-6 text-slate-500">
+            <span className="flex items-center gap-2">
+              <ShieldCheck className="size-4 shrink-0 text-orange-500" />
+              پرداخت امن از طریق درگاه بانکی
+            </span>
+            <span className="flex items-center gap-2">
+              <Package className="size-4 shrink-0 text-orange-500" />
+              ارسال به سراسر ایران با پست پیشتاز و تیپاکس
+            </span>
+            <span className="flex items-center gap-2">
+              <ReceiptText className="size-4 shrink-0 text-orange-500" />
+              امکان درخواست فاکتور رسمی
+            </span>
           </div>
         </div>
       </div>

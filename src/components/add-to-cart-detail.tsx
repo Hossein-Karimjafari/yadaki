@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState, useState } from "react";
+import { Check } from "lucide-react";
 import { addToCartAction, type ActionState } from "@/app/actions/cart";
 import { SubmitButton } from "./submit-button";
 
@@ -52,8 +53,8 @@ export function AddToCartDetail({
       </div>
       {state.error && <p className="text-sm font-bold text-red-600">{state.error}</p>}
       {state.success && (
-        <a href="/cart" className="block text-sm font-bold text-emerald-600 hover:underline">
-          ✓ {state.success} — مشاهده سبد خرید
+        <a href="/cart" className="flex items-center gap-1.5 text-sm font-bold text-emerald-600 hover:underline">
+          <Check className="size-4" /> {state.success} — مشاهده سبد خرید
         </a>
       )}
       {disabled && !state.error && (

@@ -1,5 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import { moderateReviewAction } from "../actions";
+import { CircleCheck } from "lucide-react";
+import { Stars } from "@/components/category-icon";
 import { formatJalali, toFaDigits } from "@/lib/format";
 
 export const metadata = { title: "مدیریت نظرات" };
@@ -25,7 +27,10 @@ export default async function AdminReviewsPage() {
       <div>
         <h2 className="mb-3 text-lg font-black">نظرات در انتظار تأیید ({toFaDigits(pending.length)})</h2>
         {pending.length === 0 && (
-          <div className="card p-8 text-center text-sm text-slate-400">نظر جدیدی برای بررسی نیست ✅</div>
+          <div className="flex items-center justify-center gap-1.5 card p-8 text-center text-sm text-slate-400">
+            نظر جدیدی برای بررسی نیست
+            <CircleCheck className="size-4 text-emerald-500" />
+          </div>
         )}
         <div className="space-y-3">
           {pending.map((r) => (
@@ -33,7 +38,7 @@ export default async function AdminReviewsPage() {
               <div className="mb-1 flex flex-wrap items-center justify-between gap-2 text-sm">
                 <span className="font-bold">{r.user?.name ?? "کاربر"}</span>
                 <span className="flex items-center gap-2 text-xs">
-                  <span className="text-amber-500">{"★".repeat(r.rating)}</span>
+                  <Stars value={r.rating} className="size-3.5" />
                   <span className="text-slate-400">{formatJalali(r.createdAt)}</span>
                 </span>
               </div>
@@ -60,8 +65,8 @@ export default async function AdminReviewsPage() {
         <h2 className="mb-3 text-lg font-black">آخرین نظرات منتشرشده</h2>
         <div className="card divide-y divide-slate-50">
           {recent.map((r) => (
-            <div key={r.id} className="p-3 text-xs text-slate-500">
-              <b>{r.product.name}</b> — {r.user?.name ?? "کاربر"} — {"★".repeat(r.rating)} — {formatJalali(r.createdAt)}
+            <div key={r.id} className="flex items-center gap-1.5 p-3 text-xs text-slate-500">
+              <b>{r.product.name}</b> — {r.user?.name ?? "کاربر"} — <Stars value={r.rating} className="size-3" /> — {formatJalali(r.createdAt)}
             </div>
           ))}
           {recent.length === 0 && <p className="p-6 text-center">نظری منتشر نشده است.</p>}

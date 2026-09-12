@@ -11,7 +11,7 @@ const CATEGORIES: Array<{
   children: Array<{ name: string; slug: string }>;
 }> = [
   {
-    name: "سیستم ترمز", slug: "brake-system", icon: "🛑",
+    name: "سیستم ترمز", slug: "brake-system", icon: "disc",
     children: [
       { name: "لنت ترمز جلو", slug: "brake-pad-front" },
       { name: "لنت ترمز عقب", slug: "brake-pad-rear" },
@@ -21,7 +21,7 @@ const CATEGORIES: Array<{
     ],
   },
   {
-    name: "موتور و متعلقات", slug: "engine-parts", icon: "⚙️",
+    name: "موتور و متعلقات", slug: "engine-parts", icon: "gauge",
     children: [
       { name: "واترپمپ", slug: "water-pump" },
       { name: "تسمه تایم", slug: "timing-belt" },
@@ -31,7 +31,7 @@ const CATEGORIES: Array<{
     ],
   },
   {
-    name: "تعلیق و جلوبندی", slug: "suspension", icon: "🔧",
+    name: "تعلیق و جلوبندی", slug: "suspension", icon: "wrench",
     children: [
       { name: "کمک‌فنر", slug: "shock-absorber" },
       { name: "طبق", slug: "control-arm" },
@@ -42,7 +42,7 @@ const CATEGORIES: Array<{
     ],
   },
   {
-    name: "برق و الکترونیک", slug: "electric", icon: "⚡",
+    name: "برق و الکترونیک", slug: "electric", icon: "zap",
     children: [
       { name: "باتری", slug: "battery" },
       { name: "دینام", slug: "alternator" },
@@ -53,7 +53,7 @@ const CATEGORIES: Array<{
     ],
   },
   {
-    name: "خنک‌کننده", slug: "cooling", icon: "❄️",
+    name: "خنک‌کننده", slug: "cooling", icon: "snowflake",
     children: [
       { name: "رادیاتور", slug: "radiator" },
       { name: "فن و پروانه", slug: "radiator-fan" },
@@ -61,7 +61,7 @@ const CATEGORIES: Array<{
     ],
   },
   {
-    name: "فیلترها", slug: "filters", icon: "🧯",
+    name: "فیلترها", slug: "filters", icon: "funnel",
     children: [
       { name: "فیلتر روغن", slug: "oil-filter" },
       { name: "فیلتر هوا", slug: "air-filter" },
@@ -70,7 +70,7 @@ const CATEGORIES: Array<{
     ],
   },
   {
-    name: "روغن و مایعات", slug: "oil-fluids", icon: "🛢️",
+    name: "روغن و مایعات", slug: "oil-fluids", icon: "droplets",
     children: [
       { name: "روغن موتور", slug: "engine-oil" },
       { name: "روغن گیربکس", slug: "gearbox-oil" },
@@ -79,14 +79,14 @@ const CATEGORIES: Array<{
     ],
   },
   {
-    name: "سوخت‌رسان", slug: "fuel-system", icon: "⛽",
+    name: "سوخت‌رسان", slug: "fuel-system", icon: "fuel",
     children: [
       { name: "انژکتور", slug: "injector" },
       { name: "پمپ بنزین", slug: "fuel-pump" },
     ],
   },
   {
-    name: "بدنه و چراغ", slug: "body-lights", icon: "💡",
+    name: "بدنه و چراغ", slug: "body-lights", icon: "lightbulb",
     children: [
       { name: "چراغ جلو", slug: "headlight" },
       { name: "چراغ عقب", slug: "taillight" },
@@ -95,7 +95,7 @@ const CATEGORIES: Array<{
     ],
   },
   {
-    name: "انتقال قدرت", slug: "transmission", icon: "🌀",
+    name: "انتقال قدرت", slug: "transmission", icon: "cog",
     children: [
       { name: "دیسک و صفحه کلاچ", slug: "clutch-kit" },
       { name: "بلبرینگ", slug: "bearings" },

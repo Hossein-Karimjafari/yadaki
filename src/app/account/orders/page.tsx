@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import { getCurrentUser } from "@/lib/auth";
 import Link from "next/link";
+import { Package } from "lucide-react";
 import { ORDER_STATUS_FA, formatJalali, formatToman, toFaDigits } from "@/lib/format";
 
 export const metadata = { title: "سفارش‌های من" };
@@ -17,7 +18,7 @@ export default async function OrdersPage() {
   if (orders.length === 0) {
     return (
       <div className="card flex flex-col items-center gap-3 p-16 text-center">
-        <span className="text-5xl">📦</span>
+        <Package className="size-12 text-slate-300" />
         <h2 className="font-black">هنوز سفارشی ثبت نکرده‌اید</h2>
         <Link href="/search" className="btn-primary">شروع خرید</Link>
       </div>

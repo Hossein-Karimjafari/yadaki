@@ -2,6 +2,7 @@ import { prisma } from "@/lib/prisma";
 import { getCurrentUser } from "@/lib/auth";
 import Link from "next/link";
 import Image from "next/image";
+import { Heart } from "lucide-react";
 import { removeWishlistAction } from "@/app/actions/wishlist";
 import { Price } from "@/components/price";
 import { resolvePrice } from "@/lib/price";
@@ -23,7 +24,7 @@ export default async function WishlistPage() {
       <h1 className="text-xl font-black">علاقه‌مندی‌های من ({toFaDigits(items.length)})</h1>
       {items.length === 0 ? (
         <div className="card flex flex-col items-center gap-3 p-16 text-center">
-          <span className="text-5xl">♡</span>
+          <Heart className="size-12 text-slate-300" />
           <p className="text-sm text-slate-500">لیست علاقه‌مندی شما خالی است.</p>
           <Link href="/search" className="btn-primary">مشاهده محصولات</Link>
         </div>

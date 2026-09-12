@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
+import { CircleCheck } from "lucide-react";
 import { submitQuoteAction, type QuoteState } from "./actions";
 import { SubmitButton } from "@/components/submit-button";
 
@@ -18,7 +19,9 @@ export function QuoteForm({
   if (state.success) {
     return (
       <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-8 text-center">
-        <span className="text-5xl">✅</span>
+        <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
+          <CircleCheck className="size-9" />
+        </span>
         <h3 className="mt-3 text-lg font-black text-emerald-800">درخواست شما ثبت شد</h3>
         <p className="mt-2 text-sm leading-7 text-emerald-700">{state.success}</p>
       </div>
